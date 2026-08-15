@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom';
 import { Calendar, Clock, Copy, Linkedin, Check } from 'lucide-react';
 import { articles } from '../data/articles';
 import SEOHead from '../components/SEOHead';
+import IndianFlag from '../components/IndianFlag';
+import { Figure1UPISpace, Figure2DeepTech } from '../components/Figures';
 
 export default function ArticlePage() {
   const { slug } = useParams();
@@ -57,7 +59,7 @@ export default function ArticlePage() {
     }
   };
 
-  // Only Text Scrolls (No Flag inside moving track)
+  // Marquee text list (Only text moves horizontally)
   const marqueeTextList = [
     "JAI HIND",
     "•",
@@ -76,6 +78,13 @@ export default function ArticlePage() {
     "INDIA AT 80",
     "•"
   ];
+
+  // Split HTML at figure placement markers for React component rendering
+  const contentParts = article.contentHtml.split('<!-- FIGURE_1 -->');
+  const part1 = contentParts[0];
+  const remainingParts = contentParts[1] ? contentParts[1].split('<!-- FIGURE_2 -->') : ["", ""];
+  const part2 = remainingParts[0];
+  const part3 = remainingParts[1] || "";
 
   return (
     <div className="page-container">
@@ -105,12 +114,18 @@ export default function ArticlePage() {
             </span>
           </div>
 
-          <h1 className="article-main-title">{article.title}</h1>
+          <h1 className="article-main-title" style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '0.75rem' }}>
+            <span>India at 80: From Independence to a Vision for the Future</span>
+            <IndianFlag width={48} height={32} />
+          </h1>
 
           <div className="author-byline">
             <div className="author-avatar">PK</div>
             <div>
-              <div className="author-info-name">{article.author} 🇮🇳</div>
+              <div className="author-info-name" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <span>{article.author}</span>
+                <IndianFlag width={22} height={15} />
+              </div>
               <div className="author-info-sub">{article.authorRole}</div>
             </div>
           </div>
@@ -121,16 +136,19 @@ export default function ArticlePage() {
           <img src={article.heroImage} alt={article.heroAlt} loading="eager" />
         </div>
 
-        {/* Editorial Body */}
-        <div 
-          className="editorial-body"
-          dangerouslySetInnerHTML={{ __html: article.contentHtml }}
-        />
+        {/* Editorial Body with React Components for Figures */}
+        <div className="editorial-body">
+          <div dangerouslySetInnerHTML={{ __html: part1 }} />
+          {contentParts[1] && <Figure1UPISpace />}
+          {part2 && <div dangerouslySetInnerHTML={{ __html: part2 }} />}
+          {remainingParts[1] && <Figure2DeepTech />}
+          {part3 && <div dangerouslySetInnerHTML={{ __html: part3 }} />}
+        </div>
 
         {/* Scrolling Jai Hind Banner - Fixed Flag Badge + Scrolling Text Only */}
         <div className="jai-hind-scroller-container">
           <div className="static-flag-badge" aria-label="Indian Flag">
-            🇮🇳
+            <IndianFlag width={36} height={24} />
           </div>
           <div className="scrolling-marquee-window">
             <div className="jai-hind-scroller-track">

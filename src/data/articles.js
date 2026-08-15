@@ -1,4 +1,4 @@
-// Articles Data Store - Authoritative Content with Visual Alignment
+// Articles Data Store - Authoritative Content with Component Markers
 
 export const articles = [
   {
@@ -23,7 +23,7 @@ export const articles = [
     metaDescription: "A reflection on India's journey from 1947 to 2026, its achievements, challenges, youth power and the road towards Viksit Bharat 2047.",
     canonicalUrl: "https://pavankumar.dev/articles/india-at-80",
     
-    // Exact User Supplied Article Body with Embedded Figures
+    // Exact User Supplied Article Body with Component Markers
     contentHtml: `
       <p class="lead">
         Somewhere in 1875, in the pages of a Bengali literary journal called <em>Bangadarshan</em>, Bankim Chandra Chattopadhyay published a poem that would eventually become one of the most emotionally charged pieces of writing in Indian history. He could not have known that "Vande Mataram" would go on to be sung in the Constituent Assembly on the eve of independence, that it would be adopted as the national song in 1950, or that a century and a half later, it would once again be sung at the Red Fort — this time as India marks 150 years since those words were first printed.
@@ -57,10 +57,7 @@ export const articles = [
         Start with something almost every Indian under 40 now takes for granted: sending money to someone by typing their number into a phone. In 2025 alone, UPI processed over 228 billion transactions worth close to ₹300 lakh crore, and it now accounts for roughly 85% of all digital payment volume in the country. The IMF describes it as the largest real-time payments system in the world. It's easy to treat that as a convenience statistic, but it's really an infrastructure statistic — India didn't just adopt digital payments the way other countries did, it built public rails that a fruit-seller and a fintech startup can both plug into for free. That's a genuinely different model, and other countries are now studying it.
       </p>
 
-      <div class="article-figure">
-        <img src="/assets/upi-space-visual.svg" alt="Graphic illustrating India's Digital Public Infrastructure (UPI) and Frontier Space Exploration (ISRO)" />
-        <figcaption>Figure 1: Digital Public Infrastructure (UPI) and Space Frontier Achievements (ISRO Chandrayaan-3 & Gaganyaan).</figcaption>
-      </div>
+      <!-- FIGURE_1 -->
 
       <p>
         Space tells a similar story, on a longer timeline. Chandrayaan-3 landed near the Moon's south pole in 2023 — a region no other country had reached — after decades of India building space capability with a fraction of the budgets other space agencies work with. ISRO has launched over 450 satellites since 2014, nearly 400 of them for other countries. Gaganyaan, India's first attempt at human spaceflight, is aiming for its first crewed mission in 2027; if it succeeds, India becomes only the fourth country to put humans into orbit on its own rockets. It hasn't happened yet — the date has already slipped once — but the fact that it's a realistic target at all says something about institutional patience that doesn't get talked about enough.
@@ -130,10 +127,7 @@ export const articles = [
         There's one more front where India is trying to build something from close to scratch: deep technology.
       </p>
 
-      <div class="article-figure">
-        <img src="/assets/deeptech-visual.svg" alt="Graphic illustrating IndiaAI Mission compute infrastructure and Semiconductor Chip Manufacturing" />
-        <figcaption>Figure 2: Deep Technology Foundations — IndiaAI Mission (45,000+ GPUs) and Semiconductor Mission Fabs.</figcaption>
-      </div>
+      <!-- FIGURE_2 -->
 
       <p>
         The IndiaAI Mission has scaled shared GPU compute to over 45,000 GPUs, offered to startups and researchers well below market rates, and has backed twenty homegrown AI models built specifically for Indian languages. On the hardware side, the semiconductor mission is moving from announcement to actual chips — early production runs, tape-outs from Indian institutions, and India's first fabrication plants finally moving past the planning stage.
@@ -178,7 +172,7 @@ export const articles = [
       </p>
 
       <div class="article-salutation">
-        <h3>Jai Hind 🇮🇳</h3>
+        <h3>Jai Hind</h3>
       </div>
     `
   }
