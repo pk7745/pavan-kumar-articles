@@ -21,7 +21,7 @@ export const articles = [
     // Technical SEO Metadata
     metaTitle: "India at 80: From Independence to a Vision for the Future | Pavan Kumar S",
     metaDescription: "A reflection on India's journey from 1947 to 2026, its achievements, challenges, youth power and the road towards Viksit Bharat 2047.",
-    canonicalUrl: "https://pavankumar.dev/articles/india-at-80",
+    canonicalUrl: "https://pavan-kumar-articles.vercel.app/articles/india-at-80",
     
     // Exact User Supplied Article Body with Component Markers
     contentHtml: `

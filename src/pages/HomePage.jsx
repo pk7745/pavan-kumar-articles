@@ -12,7 +12,7 @@ export default function HomePage() {
       <SEOHead 
         title="Pavan Kumar | Articles, Technology & Ideas"
         description="Personal articles and reflections by Pavan Kumar on technology, India, development, learning and the future."
-        canonicalUrl="https://pavankumar.dev/"
+        canonicalUrl="https://pavan-kumar-articles.vercel.app/"
       />
 
       {/* Hero Section */}

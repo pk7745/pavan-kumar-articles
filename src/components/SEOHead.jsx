@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 export default function SEOHead({
   title = "Pavan Kumar S | Articles, Ideas & Reflections",
   description = "Personal articles and reflections by Pavan Kumar S on technology, India, development, learning and the future.",
-  canonicalUrl = "https://pavankumar.dev/",
+  canonicalUrl = "https://pavan-kumar-articles.vercel.app/",
   ogType = "website",
   publishedDate,
   modifiedDate,

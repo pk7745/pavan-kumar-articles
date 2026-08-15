@@ -8,7 +8,7 @@ export default function AboutPage() {
       <SEOHead 
         title="About | Pavan Kumar S"
         description="Learn more about Pavan Kumar S, a BCA student interested in software development, AI engineering, backend systems, and long-form writing."
-        canonicalUrl="https://pavankumar.dev/about"
+        canonicalUrl="https://pavan-kumar-articles.vercel.app/about"
       />
 
       <div className="about-view">

@@ -10,7 +10,7 @@ export default function ArticlesPage() {
       <SEOHead 
         title="Articles | Pavan Kumar S"
         description="Browse long-form articles and reflections on technology, India, AI, and development by Pavan Kumar S."
-        canonicalUrl="https://pavankumar.dev/articles"
+        canonicalUrl="https://pavan-kumar-articles.vercel.app/articles"
       />
 
       <div style={{ maxWidth: '800px', margin: '0 auto' }}>
