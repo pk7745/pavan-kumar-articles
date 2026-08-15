@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { Calendar, Clock, Copy, Linkedin, Check } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { useParams, Link } from 'react-router-dom';
+import { Calendar, Clock, Copy, Linkedin, Check, ArrowLeft } from 'lucide-react';
 import { articles } from '../data/articles';
 import SEOHead from '../components/SEOHead';
 import IndianFlag from '../components/IndianFlag';
@@ -10,11 +10,25 @@ export default function ArticlePage() {
   const { slug } = useParams();
   const [copied, setCopied] = useState(false);
   const [showToast, setShowToast] = useState(false);
+  const [readingProgress, setReadingProgress] = useState(0);
 
   // Match article by slug or default to flagship article
   const article = articles.find((a) => a.slug === slug) || articles[0];
-
   const currentUrl = `https://pavankumar.dev/articles/${article.slug}`;
+
+  // Scroll Progress Indicator
+  useEffect(() => {
+    const updateScrollProgress = () => {
+      const currentScroll = window.scrollY;
+      const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+      if (scrollHeight > 0) {
+        setReadingProgress((currentScroll / scrollHeight) * 100);
+      }
+    };
+
+    window.addEventListener('scroll', updateScrollProgress);
+    return () => window.removeEventListener('scroll', updateScrollProgress);
+  }, []);
 
   // Handle Share on LinkedIn
   const handleLinkedInShare = () => {
@@ -59,7 +73,7 @@ export default function ArticlePage() {
     }
   };
 
-  // Marquee text list (Only text moves horizontally)
+  // Marquee text list
   const marqueeTextList = [
     "JAI HIND",
     "•",
@@ -79,7 +93,7 @@ export default function ArticlePage() {
     "•"
   ];
 
-  // Split HTML at figure placement markers for React component rendering
+  // Split HTML at figure placement markers
   const contentParts = article.contentHtml.split('<!-- FIGURE_1 -->');
   const part1 = contentParts[0];
   const remainingParts = contentParts[1] ? contentParts[1].split('<!-- FIGURE_2 -->') : ["", ""];
@@ -87,7 +101,22 @@ export default function ArticlePage() {
   const part3 = remainingParts[1] || "";
 
   return (
-    <div className="page-container">
+    <div className="page-container" style={{ position: 'relative' }}>
+      {/* Top Reading Progress Line */}
+      <div 
+        style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          height: '3px',
+          backgroundColor: 'var(--accent-saffron)',
+          width: `${readingProgress}%`,
+          zIndex: 100,
+          transition: 'width 0.1s ease-out'
+        }}
+        aria-hidden="true"
+      />
+
       <SEOHead 
         title={article.metaTitle}
         description={article.metaDescription}
@@ -100,31 +129,38 @@ export default function ArticlePage() {
       />
 
       <article className="article-view">
+        {/* Navigation Breadcrumb */}
+        <div style={{ marginBottom: '1.75rem' }}>
+          <Link to="/articles" className="back-link" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.875rem', fontWeight: '500', color: 'var(--text-muted)' }}>
+            <ArrowLeft size={15} /> Back to Articles
+          </Link>
+        </div>
+
         {/* Article Header */}
         <header className="article-header">
           <div className="article-header-meta">
             <span className="category-tag">{article.category}</span>
-            <span>•</span>
-            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.3rem' }}>
+            <span aria-hidden="true">•</span>
+            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem' }}>
               <Calendar size={14} /> {article.date}
             </span>
-            <span>•</span>
-            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.3rem' }}>
+            <span aria-hidden="true">•</span>
+            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem' }}>
               <Clock size={14} /> {article.readTime}
             </span>
           </div>
 
-          <h1 className="article-main-title" style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '0.75rem' }}>
+          <h1 className="article-main-title">
             <span>India at 80: From Independence to a Vision for the Future</span>
-            <IndianFlag width={48} height={32} />
+            <IndianFlag width={42} height={28} />
           </h1>
 
           <div className="author-byline">
-            <div className="author-avatar">PK</div>
+            <div className="author-avatar" aria-hidden="true">PK</div>
             <div>
               <div className="author-info-name" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                 <span>{article.author}</span>
-                <IndianFlag width={22} height={15} />
+                <IndianFlag width={20} height={13} />
               </div>
               <div className="author-info-sub">{article.authorRole}</div>
             </div>
@@ -136,7 +172,7 @@ export default function ArticlePage() {
           <img src={article.heroImage} alt={article.heroAlt} loading="eager" />
         </div>
 
-        {/* Editorial Body with React Components for Figures */}
+        {/* Editorial Body */}
         <div className="editorial-body">
           <div dangerouslySetInnerHTML={{ __html: part1 }} />
           {contentParts[1] && <Figure1UPISpace />}
@@ -147,8 +183,8 @@ export default function ArticlePage() {
 
         {/* Scrolling Jai Hind Banner - Fixed Flag Badge + Scrolling Text Only */}
         <div className="jai-hind-scroller-container">
-          <div className="static-flag-badge" aria-label="Indian Flag">
-            <IndianFlag width={36} height={24} />
+          <div className="static-flag-badge" title="Indian National Flag">
+            <IndianFlag width={32} height={21} />
           </div>
           <div className="scrolling-marquee-window">
             <div className="jai-hind-scroller-track">
@@ -176,11 +212,11 @@ export default function ArticlePage() {
             </span>
 
             <div className="share-buttons">
-              <button onClick={handleLinkedInShare} className="btn-primary" aria-label="Share on LinkedIn">
+              <button onClick={handleLinkedInShare} className="btn-primary" aria-label="Share this article on LinkedIn">
                 <Linkedin size={16} /> Share this article on LinkedIn →
               </button>
 
-              <button onClick={handleCopyLink} className="btn-secondary" aria-label="Copy link">
+              <button onClick={handleCopyLink} className="btn-secondary" aria-label="Copy link to clipboard">
                 {copied ? <Check size={16} style={{ color: 'var(--accent-green)' }} /> : <Copy size={16} />}
                 {copied ? "Link Copied!" : "Copy Link"}
               </button>
@@ -191,7 +227,7 @@ export default function ArticlePage() {
 
       {/* Toast Notification */}
       {showToast && (
-        <div className="toast-notice">
+        <div className="toast-notice" role="status">
           Article link copied to clipboard!
         </div>
       )}

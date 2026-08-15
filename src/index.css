@@ -396,29 +396,47 @@ h1, h2, h3, h4 {
   display: block;
 }
 
-/* Article Editorial Typography (Merriweather/Newsreader Body) */
+/* Article Editorial Typography (Newsreader Body) */
+.back-link {
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+.back-link:hover {
+  color: var(--accent-saffron) !important;
+  transform: translateX(-2px);
+}
+
 .editorial-body {
   font-family: var(--font-serif);
-  font-size: 1.2rem;
-  line-height: 1.8;
+  font-size: clamp(1.125rem, 1.05rem + 0.35vw, 1.25rem);
+  line-height: 1.85;
   color: var(--text-primary);
+  letter-spacing: -0.003em;
 }
 
 .editorial-body p {
-  margin-bottom: 1.75rem;
+  margin-bottom: 1.85rem;
+}
+
+.editorial-body p.lead {
+  font-size: clamp(1.2rem, 1.1rem + 0.4vw, 1.35rem);
+  line-height: 1.8;
+  color: var(--text-primary);
+  font-weight: 450;
+  margin-bottom: 2rem;
 }
 
 .editorial-body h2 {
-  font-size: 1.85rem;
-  margin-top: 3rem;
+  font-size: clamp(1.6rem, 1.4rem + 0.8vw, 2.1rem);
+  margin-top: 3.5rem;
   margin-bottom: 1.25rem;
-  padding-bottom: 0.5rem;
+  padding-bottom: 0.6rem;
   border-bottom: 1px solid var(--border-subtle);
+  letter-spacing: -0.015em;
 }
 
 .editorial-body h3 {
-  font-size: 1.45rem;
-  margin-top: 2.25rem;
+  font-size: clamp(1.3rem, 1.2rem + 0.5vw, 1.55rem);
+  margin-top: 2.5rem;
   margin-bottom: 1rem;
 }
 
@@ -428,23 +446,29 @@ h1, h2, h3, h4 {
 }
 
 .editorial-body blockquote {
-  margin: 2.5rem 0;
-  padding: 1.25rem 1.75rem;
+  margin: 2.75rem 0;
+  padding: 1.5rem 2rem;
   border-left: 3px solid var(--accent-saffron);
   background-color: var(--bg-secondary);
   border-radius: 0 var(--radius-md) var(--radius-md) 0;
   font-style: italic;
-  font-size: 1.25rem;
-  line-height: 1.7;
+  font-size: clamp(1.18rem, 1.1rem + 0.4vw, 1.32rem);
+  line-height: 1.75;
   color: var(--text-secondary);
 }
 
 .editorial-body ul, .editorial-body ol {
-  margin: 1.5rem 0 2rem 2rem;
+  margin: 1.75rem 0 2.25rem 2.25rem;
 }
 
 .editorial-body li {
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.85rem;
+}
+
+/* Accessible Focus States */
+button:focus-visible, a:focus-visible {
+  outline: 2px solid var(--accent-saffron);
+  outline-offset: 3px;
 }
 
 /* Article Engagement & Share Section */
