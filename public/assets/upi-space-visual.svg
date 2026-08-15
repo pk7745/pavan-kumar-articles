@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="card-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FDFBF7" />
+      <stop offset="100%" stop-color="#F4EFE6" />
+    </linearGradient>
+    <linearGradient id="space-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E293B" />
+      <stop offset="100%" stop-color="#0F172A" />
+    </linearGradient>
+    <linearGradient id="saffron-glow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#D97706" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#EA580C" stop-opacity="0.9" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1000" height="450" fill="url(#card-grad)" rx="12" stroke="#E5E0D8" stroke-width="1.5" />
+
+  <!-- Left Side: Digital Infrastructure (UPI & Public Rails) -->
+  <g transform="translate(60, 50)">
+    <rect x="0" y="0" width="400" height="350" fill="#FFFFFF" rx="16" stroke="#E2E8F0" stroke-width="1.5" shadow="0 4px 12px rgba(0,0,0,0.05)"/>
+    <text x="30" y="50" font-family="Inter, sans-serif" font-size="12" font-weight="700" fill="#D97706" letter-spacing="1.5">DIGITAL INFRASTRUCTURE</text>
+    <text x="30" y="85" font-family="Georgia, serif" font-size="24" font-weight="600" fill="#0F172A">UPI & Public Rails</text>
+    
+    <!-- Phone / Payment Visual -->
+    <rect x="30" y="115" width="340" height="190" fill="#F8FAFC" rx="12" stroke="#CBD5E1" stroke-width="1"/>
+    <circle cx="100" cy="210" r="35" fill="#D97706" opacity="0.15"/>
+    <circle cx="100" cy="210" r="22" fill="#D97706" opacity="0.3"/>
+    <path d="M 90 210 L 98 218 L 112 202" fill="none" stroke="#D97706" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    
+    <text x="155" y="195" font-family="Inter, sans-serif" font-size="20" font-weight="700" fill="#0F172A">₹300 Lakh Cr</text>
+    <text x="155" y="220" font-family="Inter, sans-serif" font-size="13" fill="#64748B">228 Billion Annual Transactions</text>
+    <text x="155" y="245" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#059669">85% of Digital Payment Volume</text>
+  </g>
+
+  <!-- Right Side: Space Exploration (ISRO & Lunar Mission) -->
+  <g transform="translate(540, 50)">
+    <rect x="0" y="0" width="400" height="350" fill="url(#space-grad)" rx="16"/>
+    
+    <!-- Stars -->
+    <circle cx="80" cy="60" r="1.5" fill="#FFFFFF" opacity="0.8"/>
+    <circle cx="320" cy="90" r="2" fill="#FFFFFF" opacity="0.9"/>
+    <circle cx="200" cy="140" r="1" fill="#FFFFFF" opacity="0.6"/>
+    <circle cx="340" cy="280" r="1.5" fill="#FFFFFF" opacity="0.7"/>
+
+    <text x="30" y="50" font-family="Inter, sans-serif" font-size="12" font-weight="700" fill="#38BDF8" letter-spacing="1.5">FRONTIER EXPLORATION</text>
+    <text x="30" y="85" font-family="Georgia, serif" font-size="24" font-weight="600" fill="#F8FAFC">ISRO · Chandrayaan & Gaganyaan</text>
+    
+    <!-- Moon & Orbit Arc -->
+    <path d="M 50 320 Q 200 180 350 320" fill="none" stroke="url(#saffron-glow)" stroke-width="2" stroke-dasharray="4 4"/>
+    <circle cx="280" cy="210" r="45" fill="#E2E8F0" opacity="0.95"/>
+    <!-- Moon Cratering -->
+    <circle cx="265" cy="195" r="8" fill="#CBD5E1"/>
+    <circle cx="295" cy="225" r="12" fill="#CBD5E1"/>
+    <circle cx="270" cy="235" r="6" fill="#94A3B8"/>
+
+    <text x="30" y="270" font-family="Inter, sans-serif" font-size="14" font-weight="600" fill="#38BDF8">Moon's South Pole Landing (2023)</text>
+    <text x="30" y="295" font-family="Inter, sans-serif" font-size="12" fill="#94A3B8">Gaganyaan Human Spaceflight Mission (2027)</text>
+  </g>
+</svg>

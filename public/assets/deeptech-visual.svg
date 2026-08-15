@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="deeptech-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A" />
+      <stop offset="100%" stop-color="#1E1B4B" />
+    </linearGradient>
+    <linearGradient id="circuit-line" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38BDF8" />
+      <stop offset="50%" stop-color="#818CF8" />
+      <stop offset="100%" stop-color="#F43F5E" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1000" height="400" fill="url(#deeptech-bg)" rx="12" />
+
+  <!-- Circuit Pattern Background -->
+  <g stroke="#334155" stroke-width="1" fill="none">
+    <path d="M 50 100 L 250 100 L 300 150 L 500 150" />
+    <path d="M 100 300 L 350 300 L 400 250 L 700 250" />
+    <path d="M 600 80 L 750 80 L 800 130 L 950 130" />
+    <circle cx="250" cy="100" r="4" fill="#38BDF8" />
+    <circle cx="400" cy="250" r="4" fill="#818CF8" />
+    <circle cx="750" cy="80" r="4" fill="#F43F5E" />
+  </g>
+
+  <!-- Left: IndiaAI Mission Box -->
+  <g transform="translate(80, 70)">
+    <rect x="0" y="0" width="380" height="260" fill="rgba(255,255,255,0.04)" rx="12" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+    <text x="30" y="45" font-family="Inter, sans-serif" font-size="12" font-weight="700" fill="#38BDF8" letter-spacing="1.5">INDIA AI MISSION</text>
+    <text x="30" y="80" font-family="Georgia, serif" font-size="22" font-weight="600" fill="#F8FAFC">Compute & Native Models</text>
+    
+    <text x="30" y="130" font-family="Inter, sans-serif" font-size="32" font-weight="700" fill="#38BDF8">45,000+ GPUs</text>
+    <text x="30" y="155" font-family="Inter, sans-serif" font-size="13" fill="#94A3B8">Shared compute for researchers & startups</text>
+
+    <rect x="30" y="185" width="320" height="45" fill="rgba(56, 189, 248, 0.1)" rx="8" stroke="rgba(56, 189, 248, 0.3)" />
+    <text x="45" y="212" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#E0F2FE">20 Homegrown Indic AI Models Supported</text>
+  </g>
+
+  <!-- Right: India Semiconductor Mission Box -->
+  <g transform="translate(540, 70)">
+    <rect x="0" y="0" width="380" height="260" fill="rgba(255,255,255,0.04)" rx="12" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+    <text x="30" y="45" font-family="Inter, sans-serif" font-size="12" font-weight="700" fill="#F43F5E" letter-spacing="1.5">SEMICONDUCTOR MISSION</text>
+    <text x="30" y="80" font-family="Georgia, serif" font-size="22" font-weight="600" fill="#F8FAFC">Fabs & Chip Design</text>
+
+    <!-- Silicon Wafer Graphic -->
+    <g transform="translate(30, 110)">
+      <rect x="0" y="0" width="70" height="70" fill="#1E293B" rx="8" stroke="#F43F5E" stroke-width="1.5"/>
+      <rect x="15" y="15" width="40" height="40" fill="#334155" rx="4"/>
+      <line x1="35" y1="0" x2="35" y2="15" stroke="#F43F5E" stroke-width="2"/>
+      <line x1="35" y1="55" x2="35" y2="70" stroke="#F43F5E" stroke-width="2"/>
+      <line x1="0" y1="35" x2="15" y2="35" stroke="#F43F5E" stroke-width="2"/>
+      <line x1="55" y1="35" x2="70" y2="35" stroke="#F43F5E" stroke-width="2"/>
+    </g>
+
+    <text x="120" y="140" font-family="Inter, sans-serif" font-size="18" font-weight="700" fill="#F8FAFC">Commercial Fabs</text>
+    <text x="120" y="165" font-family="Inter, sans-serif" font-size="13" fill="#94A3B8">First fabrication plants operational</text>
+
+    <rect x="30" y="195" width="320" height="40" fill="rgba(244, 63, 94, 0.1)" rx="8" stroke="rgba(244, 63, 94, 0.3)" />
+    <text x="45" y="220" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#FFE4E6">Commercial Tape-outs & Foundational Hardware</text>
+  </g>
+</svg>
