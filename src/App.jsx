@@ -7,19 +7,30 @@ import ArticlesPage from './pages/ArticlesPage';
 import ArticlePage from './pages/ArticlePage';
 import AboutPage from './pages/AboutPage';
 
-// Scroll to top on route change
-function ScrollToTop() {
-  const { pathname } = useLocation();
+// Scroll to top & GA4 SPA route pageview tracker
+function RouteTracker() {
+  const location = useLocation();
+
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [pathname]);
+
+    // Track SPA page view in Google Analytics 4
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', 'page_view', {
+        page_path: location.pathname + location.search,
+        page_location: window.location.href,
+        page_title: document.title
+      });
+    }
+  }, [location]);
+
   return null;
 }
 
 export default function App() {
   return (
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
-      <ScrollToTop />
+      <RouteTracker />
       <Navbar />
       <main style={{ flex: 1 }}>
         <Routes>
